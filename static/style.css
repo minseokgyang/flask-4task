@@ -1,0 +1,136 @@
+/* 전체 폰트 & 배경 */
+body {
+  font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffe6f0 0%, #e6f7ff 100%);
+  color: #444;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #ff7fbf;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+h2 {
+  color: #ff99c8;
+  border-left: 8px solid #ffb3d9;
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+/* 폼 박스 */
+#postForm {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #ffe6f0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: 0.3s;
+  background-color: #fffafc;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #ff99c8;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* 버튼 */
+input[type="submit"],
+input[type="button"],
+button {
+  background-color: #ffb3d9;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+  background-color: #ff99c8;
+  transform: scale(1.05);
+}
+
+/* 게시물 리스트 */
+#postsList {
+  list-style-type: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+#postsList li {
+  background: #fff;
+  border: 2px dashed #ffe6f0;
+  border-radius: 16px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(255, 179, 217, 0.2);
+  transition: 0.3s;
+}
+
+#postsList li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 179, 217, 0.3);
+}
+
+#postsList h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #ff7fbf;
+}
+
+#postsList p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* 버튼 영역 */
+#postsList button {
+  background-color: #c1e1ff;
+  color: #333;
+  border-radius: 12px;
+  margin-right: 5px;
+  padding: 7px 12px;
+}
+
+#postsList button:hover {
+  background-color: #a6d4ff;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  #postForm,
+  #postsList {
+    width: 95%;
+  }
+}
