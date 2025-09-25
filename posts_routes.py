@@ -2,11 +2,15 @@ from flask import request, jsonify
 from flask_smorest import Blueprint, abort
 
 def create_posts_blueprint(mysql):
-    posts_blp = Blueprint("posts", __name__, description='posts api')
+    posts_blp = Blueprint("posts", 
+                          __name__, 
+                          description='posts api',
+                          url_prefix="/posts")
 
     @posts_blp.route('/', methods=['GET','POST'])
     def posts():
         cursor = mysql.connection.cursor()
+
         #조회
         if request.method == 'GET':
             sql = "SELECT * FROM posts"
@@ -32,6 +36,7 @@ def create_posts_blueprint(mysql):
 
             if not title or not content:
                 abort(400, message="제목이나 글이 없습니다.")
+
             sql = 'INSERT INTO posts(title, content) VALUES(%s,%s)'
             cursor.execute(sql, (title, content))
             mysql.connection.commit()
@@ -80,3 +85,5 @@ def create_posts_blueprint(mysql):
                 mysql.connection.commit()
 
                 return jsonify({"msg":"성공적으로 삭제하였습니다."})
+    
+    return posts_blp
